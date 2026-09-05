@@ -1,0 +1,13 @@
+# Compatibility constraints for resolving requirements.txt on Python 3.8.
+#
+# requirements.txt leaves TensorFlow unbounded (`tensorflow>=2.0.1`). On a current
+# package index that resolves to TensorFlow 2.13, which requires numpy>=1.22. That
+# pulls numpy 1.24, which removes APIs (e.g. np.typeDict) still used by the pinned
+# scipy==1.4.1 and numba==0.48, breaking every import at runtime.
+#
+# These constraints pin a coherent, working set that still honors requirements.txt
+# (numpy>=1.20 and tensorflow>=2.0.1) while remaining compatible with the pinned
+# scipy/numba/scikit-learn/librosa/resampy stack. They intentionally do NOT modify
+# requirements.txt itself.
+numpy==1.20.3
+tensorflow==2.8.4
