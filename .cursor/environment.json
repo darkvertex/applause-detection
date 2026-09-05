@@ -1,0 +1,4 @@
+{
+  "name": "applause-detection",
+  "install": "bash .cursor/install.sh"
+}
