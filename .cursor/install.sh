@@ -11,8 +11,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 VENV_DIR="${APPLAUSE_VENV:-${HOME}/.venvs/applause}"
 
-# Prefer sudo when available and not already root (Dockerfile image ships deps, so
-# this apt path is a fallback for the default base image).
+# Prefer sudo when available and not already root (needed for the apt steps that
+# install Python 3.8 and audio/build libraries on the default base image).
 SUDO=""
 if [ "$(id -u)" -ne 0 ] && command -v sudo >/dev/null 2>&1; then
   SUDO="sudo"

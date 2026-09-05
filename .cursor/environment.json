@@ -1,9 +1,4 @@
 {
   "name": "applause-detection",
-  "user": "ubuntu",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": "."
-  },
   "install": "bash .cursor/install.sh"
 }
